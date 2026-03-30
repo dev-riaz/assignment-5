@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <section class="container flex justify-center items-center mt-2">
+        <div class="shadow-sm flex flex-col justify-center items-center bg-white border-base-300 rounded-box py-2">
+            <img src="./assets/github-logo.png" alt="">
+            <h1 class="mt-2 text-[#1F2937] text-xl font-semibold">GitHub Issues Tracker</h1>
+            <p class="text-[#64748B]">Sign in to manage your issues</p>
+            <fieldset class="fieldset w-xs p-4">
+                <label class="label text-[#1F2937] font-medium">Username</label>
+                <input id="username-input" type="text" class="input" placeholder="Enter Username" />
+
+                <label class="label text-[#1F2937] font-medium">Password</label>
+                <input id="password-input" type="password" class="input" placeholder="Enter Password" />
+
+                <button id="login-btn" class="btn btn-primary mt-4 text-white">Sign In</button>
+
+                <div class="flex justify-center items-center mt-1">
+                    <span class="">OR</span>
+                </div>
+                <div class="flex flex-col justify-center items-center">
+                    <p class="text-[#64748B]">Demo Credentials:</p>
+                    <div class="flex flex-col justify-center items-center bg-base-200 w-full py-4 mt-1 rounded-sm">
+                        <p><span class="text-[#1F2937] font-medium">Username:</span> admin</p>
+                        <p><span class="text-[#1F2937] font-medium">Password:</span> admin123</p>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </section>
+    <script src="./js/loginpage.js"></script>
+</body>
+
+</html>
