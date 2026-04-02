@@ -43,9 +43,9 @@
     <main>
         <section class="w-11/12 mx-auto mt-8">
             <div class="p-4 bg-white shadow-sm border-t-2 rounded-t-md border-t-gray-400/20">
-                <button class="btn btn-primary btn-sm px-8">All</button>
-                <button class="btn btn-sm px-6">Open</button>
-                <button class="btn btn-sm px-6">Closed</button>
+                <button class="showBtn btn btn-primary btn-sm px-8">All</button>
+                <button class="showBtn btn btn-sm px-6">Open</button>
+                <button class="showBtn btn btn-sm px-6">Closed</button>
             </div>
             <div class="bg-base-200 shadow-md">
                 <div class=" mt-4 p-5 flex justify-between items-center shadow-sm bg-white">
@@ -54,7 +54,7 @@
                             <img class="w-8 h-8" src="./assets/Aperture.png" alt="">
                         </div>
                         <div class="">
-                            <h1 class="text-[#64748B] text-xl font-semibold"><span>0</span> Issues</h1>
+                            <h1 class="text-[#64748B] text-xl font-semibold"><span id="cardCount">0</span> Issues</h1>
                             <p class="text-[#64748B]">Track and manage your project issues</p>
                         </div>
                     </div>
@@ -66,27 +66,13 @@
                     </div>
                 </div>
                 <div id="cardContainer" class=" mt-4 grid grid-cols-4 gap-3 p-3">
-                    <!-- <div class="shadow-sm bg-white border-t-4 border-t-[#00A96E] rounded-xl">
-                        <div class="p-4 space-y-3">
-                            <div class="flex justify-between items-center">
-                                <img src="./assets/Open-Status.png" alt="">
-                                <div class="badge badge-md text-[#EF4444] bg-[#FEECEC] px-6 rounded-full">High</div>
-                            </div>
-                            <div class="space-y-2">
-                                <h1 class="text-[#64748B] text-[14px] font-semibold">Fix navigation menu on mobile devices</h1>
-                                <p class="text-[#64748B] text-[12px]">The navigation menu doesn't collapse properly on mobile devices...</p>
-                                <div class="">
-                                    <div class="badge badge-md text-[#EF4444] bg-[#FEECEC] rounded-full"><img src="./assets/BugDroid.png" alt=""> Bug</div>
-                                    <div class="badge badge-md text-[#d97706] bg-[#fde68aa9]"><img src="./assets/Vector (1).png" alt="">help wanted</div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr class="border text-base-300">
-                        <div class="p-4 space-y-1">
-                            <p class="text-[#64748B] text-[12px]">#1 by john_doe</p>
-                            <p class="text-[#64748B] text-[12px]">1/15/2024</p>
-                        </div>
-                    </div> -->
+                </div>
+                <div id="Open-card-container" class="mt-4 grid grid-cols-4 gap-3 p-3 hidden">
+
+                </div>
+
+                <div id="closed-card-container" class="mt-4 grid grid-cols-4 gap-3 p-3 w-full hidden">
+
                 </div>
             </div>
         </section>
