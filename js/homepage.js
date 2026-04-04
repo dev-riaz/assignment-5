@@ -198,7 +198,6 @@ document.getElementById('search-btn').addEventListener('click', () => {
         return;
     }
     async function loadSearch() {
-        // const issues = data.data || [];
         cardContainer.innerHTML = "";
         OpenCardContainer.innerHTML = "";
         closedCardContainer.innerHTML = "";
