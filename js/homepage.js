@@ -30,6 +30,12 @@ let counts = {
     closed: 0
 }
 
+const updateCounts = (data) => {
+    counts.all = data.length;
+    counts.open = data.filter(i => i.status === 'open').length;
+    counts.closed = data.filter(i => i.status === 'closed').length;
+};
+
 async function loadCard() {
     cardContainer.innerHTML = "";
     OpenCardContainer.innerHTML = "";
@@ -49,10 +55,7 @@ async function loadCard() {
     const openIssues = data.data.filter(item => item.status === 'open');
     const closedIssues = data.data.filter(item => item.status === 'closed');
 
-    counts.all = data.data.length;
-    counts.open = openIssues.length;
-    counts.closed = closedIssues.length;
-
+    updateCounts(data.data)
 
     const card = (item) => {
         return `
@@ -191,10 +194,11 @@ document.getElementById('search-btn').addEventListener('click', () => {
     const searchValue = input.value.trim();
 
     if (!searchValue) {
-        loadCard();
+        loadCard()
         return;
     }
     async function loadSearch() {
+        // const issues = data.data || [];
         cardContainer.innerHTML = "";
         OpenCardContainer.innerHTML = "";
         closedCardContainer.innerHTML = "";
@@ -206,36 +210,34 @@ document.getElementById('search-btn').addEventListener('click', () => {
         const issues = data.data || [];
 
         showCount(issues.length);
-        counts.all = issues.length;
-        counts.open = issues.filter(i => i.status === 'open').length;
-        counts.closed = issues.filter(i => i.status === 'closed').length;
+        updateCounts(issues)
 
         issues.forEach(element => {
             const div = document.createElement("div");
             div.innerHTML = `
-        <div onclick="handleModal(${element.id})"class="shadow-sm bg-white rounded-xl h-full flex flex-col justify-between border-t-4 ${element.status === "open" ? "border-t-[#00A96E]" : "border-t-purple-500"}">
+                <div onclick="handleModal(${element.id})"class="shadow-sm bg-white rounded-xl h-full flex flex-col justify-between border-t-4 ${element.status === "open" ? "border-t-[#00A96E]" : "border-t-purple-500"}">
 
-                        <div class="p-4 space-y-3">
-                            <div class="flex justify-between items-center">
-                                <img src="${element.status === 'open' ? "./assets/Open-Status.png" : element.status === 'closed' ? "./assets/Closed- Status .png" : ""}" alt="">
-                                <div class="badge badge-md px-6 rounded-full ${element.priority === 'high' ? 'bg-[#FEECEC] text-[#EF4444]' : element.priority === "medium" ? 'bg-[#FFF6D1] text-[#F59E0B]' : element.priority === "low" ? 'bg-[#EEEFF2] text-[#9CA3AF]' : ""}">${element.priority}</div>
-                            </div>
-                            <div class="space-y-3">
-                                <h1 class="text-[#64748B] text-[14px] font-semibold line-clamp-1">${element.title}</h1>
-                                <p class="text-[#64748B] text-[12px] line-clamp-2">${element.description}</p>
-                                <div class="">
-                                    <div class="rounded-full">${createElement(element.labels)}</div>
+                                <div class="p-4 space-y-3">
+                                    <div class="flex justify-between items-center">
+                                        <img src="${element.status === 'open' ? "./assets/Open-Status.png" : element.status === 'closed' ? "./assets/Closed- Status .png" : ""}" alt="">
+                                        <div class="badge badge-md px-6 rounded-full ${element.priority === 'high' ? 'bg-[#FEECEC] text-[#EF4444]' : element.priority === "medium" ? 'bg-[#FFF6D1] text-[#F59E0B]' : element.priority === "low" ? 'bg-[#EEEFF2] text-[#9CA3AF]' : ""}">${element.priority}</div>
+                                    </div>
+                                    <div class="space-y-3">
+                                        <h1 class="text-[#64748B] text-[14px] font-semibold line-clamp-1">${element.title}</h1>
+                                        <p class="text-[#64748B] text-[12px] line-clamp-2">${element.description}</p>
+                                        <div class="">
+                                            <div class="rounded-full">${createElement(element.labels)}</div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <hr class="border text-base-300">
-                        <div class="p-4 space-y-1">
-                            <p class="text-[#64748B] text-[12px]">#1 by${element.author}-${element.createdAt}</p>
-                            <p class="text-[#64748B] text-[12px]">${element.assignee}-${element.updatedAt}</p>
-                        </div>
-        
-        </div>  
-    `;
+                                <hr class="border text-base-300">
+                                <div class="p-4 space-y-1">
+                                    <p class="text-[#64748B] text-[12px]">#1 by${element.author}-${element.createdAt}</p>
+                                    <p class="text-[#64748B] text-[12px]">${element.assignee}-${element.updatedAt}</p>
+                                </div>
+
+                </div>  
+            `;
             cardContainer.appendChild(div);
             if (element.status === "open") {
                 OpenCardContainer.appendChild(div.cloneNode(true));
