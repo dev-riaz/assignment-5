@@ -27,7 +27,7 @@
 
 <body>
     <header>
-        <div class="navbar bg-base-100 shadow-sm px-10 flex flex-col md:flex md:flex-row gap-5 md:justify-between">
+        <div class="navbar bg-base-100 shadow-sm px-0 md:px-10 flex flex-col md:flex md:flex-row gap-5 md:justify-between">
             <!-- left part -->
             <div class="flex justify-center items-center">
                 <img class="w-10" src="./assets/github-logo.png" alt="">
@@ -36,7 +36,7 @@
             <!-- right part -->
             <div class="flex gap-4">
                 <input id="input-search" type="text" placeholder="Search issues..."
-                    class="input input-bordered w-24 md:w-auto" />
+                    class="input input-bordered w-full md:w-full" />
                 <div>
                     <button id="search-btn" class="btn btn-soft btn-primary">Search</button>
                 </div>
@@ -46,7 +46,7 @@
     <main>
         <section class="w-11/12 mx-auto mt-8">
             <!-- toggle button -->
-            <div class="p-4 bg-white shadow-sm border-t-2 rounded-t-md border-t-gray-400/20">
+            <div class="p-4 bg-white shadow-sm border-t-2 rounded-t-md border-t-gray-400/20 flex gap-3">
                 <button class="showBtn btn btn-primary btn-sm px-8">All</button>
                 <button class="showBtn btn btn-sm px-6">Open</button>
                 <button class="showBtn btn btn-sm px-6">Closed</button>
