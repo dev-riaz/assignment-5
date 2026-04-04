@@ -27,15 +27,15 @@
 
 <body>
     <header>
-        <div class="navbar bg-base-100 shadow-sm px-10 flex justify-between">
+        <div class="navbar bg-base-100 shadow-sm px-10 flex flex-col md:flex md:flex-row gap-5 md:justify-between">
             <div class="flex justify-center items-center">
                 <img class="w-10" src="./assets/github-logo.png" alt="">
                 <a class="btn btn-ghost text-xl">GitHub Issues Tracker</a>
             </div>
             <div class="flex gap-4">
-                <input type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto" />
+                <input id="input-search" type="text" placeholder="Search issues..." class="input input-bordered w-24 md:w-auto" />
                 <div>
-                    <button class="btn btn-primary"><i class="fa-solid fa-plus"></i>New Issue</button>
+                    <button id="search-btn" class="btn btn-primary"><i class="fa-solid fa-plus"></i>New Issue</button>
                 </div>
             </div>
         </div>
@@ -48,7 +48,7 @@
                 <button class="showBtn btn btn-sm px-6">Closed</button>
             </div>
             <div class="bg-base-200 shadow-md">
-                <div class=" mt-4 p-5 flex justify-between items-center shadow-sm bg-white">
+                <div class=" mt-4 p-5 justify-between items-center shadow-sm bg-white flex flex-col md:flex md:flex-row gap-3">
                     <div class="flex justify-between items-center gap-3">
                         <div class="w-12 h-12 rounded-full flex justify-center items-center bg-[#ECE4FF]">
                             <img class="w-8 h-8" src="./assets/Aperture.png" alt="">
@@ -65,13 +65,21 @@
                         <div class="w-4 h-4 bg-[#A855F7] rounded-full"></div>Closed</p>
                     </div>
                 </div>
-                <div id="cardContainer" class=" mt-4 grid grid-cols-4 gap-3 p-3">
+                <div id="loadSpinner" class="flex  justify-center items-center p-6 hidden">
+                    <span class="loading loading-spinner loading-xl"></span>
                 </div>
-                <div id="Open-card-container" class="mt-4 grid grid-cols-4 gap-3 p-3 hidden">
+
+                <dialog id="my_modal_1" class="modal">
+
+                </dialog>
+
+                <div id="cardContainer" class="mt-4 grid md:grid-cols-4 grid-cols-1 gap-3 p-3">
+                </div>
+                <div id="Open-card-container" class="mt-4 grid md:grid-cols-4 grid-cols-1 gap-3 p-3 hidden">
 
                 </div>
 
-                <div id="closed-card-container" class="mt-4 grid grid-cols-4 gap-3 p-3 w-full hidden">
+                <div id="closed-card-container" class="mt-4 grid md:grid-cols-4 grid-cols-1 gap-3 p-3 w-full hidden">
 
                 </div>
             </div>
