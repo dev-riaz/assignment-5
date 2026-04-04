@@ -28,12 +28,15 @@
 <body>
     <header>
         <div class="navbar bg-base-100 shadow-sm px-10 flex flex-col md:flex md:flex-row gap-5 md:justify-between">
+            <!-- left part -->
             <div class="flex justify-center items-center">
                 <img class="w-10" src="./assets/github-logo.png" alt="">
                 <a class="btn btn-ghost text-xl">GitHub Issues Tracker</a>
             </div>
+            <!-- right part -->
             <div class="flex gap-4">
-                <input id="input-search" type="text" placeholder="Search issues..." class="input input-bordered w-24 md:w-auto" />
+                <input id="input-search" type="text" placeholder="Search issues..."
+                    class="input input-bordered w-24 md:w-auto" />
                 <div>
                     <button id="search-btn" class="btn btn-primary"><i class="fa-solid fa-plus"></i>New Issue</button>
                 </div>
@@ -42,13 +45,15 @@
     </header>
     <main>
         <section class="w-11/12 mx-auto mt-8">
+            <!-- toggle button -->
             <div class="p-4 bg-white shadow-sm border-t-2 rounded-t-md border-t-gray-400/20">
                 <button class="showBtn btn btn-primary btn-sm px-8">All</button>
                 <button class="showBtn btn btn-sm px-6">Open</button>
                 <button class="showBtn btn btn-sm px-6">Closed</button>
             </div>
             <div class="bg-base-200 shadow-md">
-                <div class=" mt-4 p-5 justify-between items-center shadow-sm bg-white flex flex-col md:flex md:flex-row gap-3">
+                <div
+                    class=" mt-4 p-5 justify-between items-center shadow-sm bg-white flex flex-col md:flex md:flex-row gap-3">
                     <div class="flex justify-between items-center gap-3">
                         <div class="w-12 h-12 rounded-full flex justify-center items-center bg-[#ECE4FF]">
                             <img class="w-8 h-8" src="./assets/Aperture.png" alt="">
@@ -65,20 +70,22 @@
                         <div class="w-4 h-4 bg-[#A855F7] rounded-full"></div>Closed</p>
                     </div>
                 </div>
+                <!-- spinner -->
                 <div id="loadSpinner" class="flex  justify-center items-center p-6 hidden">
                     <span class="loading loading-spinner loading-xl"></span>
                 </div>
-
+                <!-- modal container -->
                 <dialog id="my_modal_1" class="modal">
 
                 </dialog>
-
+                <!-- all card container -->
                 <div id="cardContainer" class="mt-4 grid md:grid-cols-4 grid-cols-1 gap-3 p-3">
                 </div>
+                <!-- open card container -->
                 <div id="Open-card-container" class="mt-4 grid md:grid-cols-4 grid-cols-1 gap-3 p-3 hidden">
 
                 </div>
-
+                <!-- closed car container -->
                 <div id="closed-card-container" class="mt-4 grid md:grid-cols-4 grid-cols-1 gap-3 p-3 w-full hidden">
 
                 </div>
