@@ -224,6 +224,7 @@ document.getElementById('search-btn').addEventListener('click', () => {
         cardContainer.innerHTML = "";
         OpenCardContainer.innerHTML = "";
         closedCardContainer.innerHTML = "";
+        spinner.classList.remove('hidden')
 
         const res = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`)
 
@@ -233,6 +234,7 @@ document.getElementById('search-btn').addEventListener('click', () => {
 
         showCount(issues.length);
         updateCounts(issues)
+        spinner.classList.add('hidden')
 
         issues.forEach(element => {
             const div = document.createElement("div");
