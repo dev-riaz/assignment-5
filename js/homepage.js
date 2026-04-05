@@ -187,13 +187,36 @@ const loadModal = (el) => {
     `;
 };
 
-
+loadCard()
 document.getElementById('search-btn').addEventListener('click', () => {
     const input = document.getElementById('input-search');
 
     const searchValue = input.value.trim();
+    if (searchValue) {
+        currentTab = 'all'
+        document.querySelectorAll('.showBtn').forEach(btn => {
+            btn.classList.remove('btn-primary');
+            if (btn.innerText.toLowerCase() === 'all') {
+                btn.classList.add('btn-primary');
+            }
 
+        });
+        cardContainer.classList.remove('hidden');
+        OpenCardContainer.classList.add('hidden');
+        closedCardContainer.classList.add('hidden');
+    }
     if (!searchValue) {
+        currentTab = 'all'
+        document.querySelectorAll('.showBtn').forEach(btn => {
+            btn.classList.remove('btn-primary');
+            if (btn.innerText.toLowerCase() === 'all') {
+                btn.classList.add('btn-primary');
+            }
+
+        });
+        cardContainer.classList.remove('hidden');
+        OpenCardContainer.classList.add('hidden');
+        closedCardContainer.classList.add('hidden');
         loadCard()
         return;
     }
@@ -251,4 +274,3 @@ document.getElementById('search-btn').addEventListener('click', () => {
     loadSearch()
 
 })
-loadCard();
